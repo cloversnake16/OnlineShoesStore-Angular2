@@ -1,0 +1,32 @@
+{
+    "data": [{
+            "id": 1,
+            "name": "Listino 1",
+            "foto": "/immagini/listini/trekking.jpg",
+            "desc": "ABC",
+            "Lista_Articoli": [
+                { "id": 1, "name": "prodotto1", "quantita": 2, "prezzo": 23.45, "categories_list": ["42", "44"], "col": "", "colore": ["rosso", "marrone", "grigio"], "desc": "descrizione prodotto 1", "foto": "/immagini/prodotto1.jpg" },
+                { "id": 2, "name": "prodotto2", "quantita": 3, "prezzo": 23.45, "categories_list": ["42", "44"], "desc": "descrizione prodotto 2", "foto": "/immagini/prodotto1.jpg" },
+                { "id": 3, "name": "prova", "quantita": 45, "prezzo": 200, "categories_list": ["40", "41"], "colore": ["rosso", "nero", "marrone", "blu"], "desc": "descrizione prodotto 3descrizione prodotto 3descrizione prodotto 3descrizione prodotto 3descrizione prodotto 3descrizione prodotto 3descrizione prodotto 3", "foto": "/immagini/prodotto1.jpg" },
+                { "id": 4, "name": "prova2", "quantita": 43, "prezzo": 200, "categories_list": ["42", "43", "45"], "desc": "descrizione 4", "foto": "/immagini/prodotto1.jpg" }
+            ]
+        },
+        {
+            "id": 2,
+            "foto": "/immagini/listini/caccia.jpg",
+            "name": "Listino 2",
+            "desc": "XYZ",
+            "Lista_Articoli": [
+                { "id": 4, "name": "prova2", "quantita": 43, "prezzo": 200, "categories_list": ["42", "43", "45"], "colore": ["rosso", "nero", "marrone", "verde"], "desc": "descrizione 4" }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Listino 3",
+            "desc": "XYZ",
+            "Lista_Articoli": [
+                { "id": 4, "name": "prova2", "quantita": 43, "prezzo": 200, "categories_list": ["42", "43", "45"], "colore": ["rosso", "nero", "marrone", "verde"], "desc": "descrizione 4" }
+            ]
+        }
+    ]
+}

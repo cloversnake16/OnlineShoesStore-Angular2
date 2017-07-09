@@ -1,0 +1,81 @@
+<!-- add/edit dialog div -->
+<!-- [@dialog], id to animate dialog in app-dialog.ts file -->
+<div [@dialog] *ngIf="visible" class="container dialog">
+    <ng-content></ng-content>
+    <!-- dialog close button -->
+    <div class="row">
+        <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+    </div>
+    <!-- product photo and name div -->
+    <div class="col-sm-6">
+        <!-- If product photo doesn't exist, show error image -->
+        <img *ngIf="!product.foto" src="immagini/imageError.png" width="100%">
+        <!-- If product photo exists, show product photo image and product name -->
+        <img *ngIf="product.foto" src={{product.foto}} width="100%">
+
+        <!-- <input type="text" class="form-control" id="product_name" [(ngModel)] = "product.name"   name="prod_name" required  [readonly]="true" #name="ngModel"  style="position:relative; left: 300px; bottom:120px; width: 200px;"> -->
+    </div>
+
+    <div class="col-sm-6">
+        <!-- avaiable div -->
+        <div class="row"><label for="product_name"><h1>{{product.name}}</h1> </label></div>
+        <div class="row">
+            <label *ngIf="product.quantita > 0" style="color: green; margin-top: 10px; font-size: 24px; line-height: 34px;">Disponibile</label>
+            <label *ngIf="product.quantita == 0" style="color: red; margin-top: 10px; font-size: 24px;">Non disponibile</label>
+        </div>
+
+        <div class="row" style="margin-top:10px; margin-bottom: 10px">
+            <!-- price div -->
+            <div class="col-xs-4 col-sm-4">
+                <label for="product_price" style="color: red; font-size: 18px; line-height: 34px; ">€{{product.prezzo}}</label>
+            </div>
+            <!-- Qty demand div -->
+            <div class=" col-xs-5 col-sm-5">
+                <label for="product_quantity" style="line-height: 34px; float: right">Qtà ordinata: </label>
+            </div>
+            <div class="col-xs-3 col-sm-3">
+                <input type="text" class="form-control" id="product_quantity" [(ngModel)]="product.quantita_inserita" required name="qta">
+            </div>
+        </div>
+
+        <!-- size option div -->
+        <div class="row" style="margin-top:10px; margin-bottom: 10px">
+            <div class="col-xs-2 col-sm-2"><label for="product_category" style="line-height: 34px; float: right">Taglia: </label></div>
+            <div class="col-xs-4 col-sm-4">
+                <!-- If mode == 'add' -->
+                <select *ngIf="this.mode == 'add'" class="form-control" id="product_category" name="prod_categoria" [(ngModel)]="product.categoria" required #categoria="ngModel" (ngModelChange)="changeCategory($event, product.data)">				   
+		            <option *ngFor="let elem of product.categories_list ; let i=index" [value] = "elem" >{{elem}}</option>
+                </select>
+                <!-- If mode == 'edit' -->
+                <select *ngIf="this.mode == 'edit'" class="form-control" id="product_category" name="prod_categoria" [(ngModel)]="product.categoria" required #categoria="ngModel">				 
+                    <option  *ngFor="let taglia of product.lista_taglie; let i=index" [value] = "taglia">{{taglia}}</option>
+                </select>
+            </div>
+            <div class="col-xs-2 col-sm-2"><label for="product_color" style="line-height: 34px; float: right">Colore: </label></div>
+            <div class="col-xs-4 col-sm-4">
+                <!-- If mode == 'add' -->
+                <select *ngIf="this.mode == 'add'" class="form-control" id="product_color" name="prod_color" [(ngModel)]="product.sel_colore" required #colore="ngModel">				 
+                    <option  *ngFor="let colour of product.colore" [value] = "colour">{{colour}}</option>
+                </select>
+                <!-- If mode == 'edit' -->
+                <select *ngIf="this.mode == 'edit'" class="form-control" id="product_color" name="prod_color" [(ngModel)]="product.sel_colore" required #colore="ngModel">
+		            <option  *ngFor="let colour of product.lista_colori" [value] = "colour">{{colour}}</option>
+		        </select>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:10px; margin-bottom: 10px; text-align: center">
+            <div class="col-sm-12">
+                <!-- dialog add button -->
+                <button *ngIf="closable && this.mode == 'add'" (click)="add(product, product.colore, product.categories_list)" aria-label="Add" class="btn btn-success">Aggiungi al carrello</button>
+                <!-- dialog edit button -->
+                <button *ngIf="closable && this.mode == 'edit'" (click)="edit(product, product.colore)" aria-label="Edit" class="btn btn-success">Modifica</button>
+                <!-- error messgae div -->
+                <div *ngIf="this.invalid_field==true" class="alert alert-danger">
+                    i campi taglia e colore sono obbligatori
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>

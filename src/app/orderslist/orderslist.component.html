@@ -1,0 +1,30 @@
+<div class="container" style="margin-left: 40px;">
+    <table class="table  table-responsive table-hover" style="width:80%;">
+        <!-- shopping table header -->
+        <thead class="thead-inverse">
+            <tr style="width: 400px">
+                <th>Order ID</th>
+                <th>Ragione Sociale</th>
+                <th>Data Documento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- shopping table row -->
+            <tr *ngFor="let prod of list_in_cart">
+                <!-- product price -->
+                <td style="padding-top: 45px;padding-left: 10px;">Order ID</td>
+                <!-- product amount -->
+                <td style="padding-top: 45px; padding-left: 30px;">Business Name</td>
+                <td style="padding-top: 45px">Document Date</td>
+            </tr>
+        </tbody>
+        <!-- <script type="text/javascript">
+            $(function(){
+                if(!Modernizr.inputtypes.date) {
+                    console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
+                    $("#data_doc").datepicker();
+                }
+            });
+        </script> -->
+    </table>
+</div>

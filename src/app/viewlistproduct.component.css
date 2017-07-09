@@ -1,0 +1,29 @@
+div.card-block {
+    height: 100px;
+    text-align: "justify";
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #666666;
+    font-size: 24px;
+}
+
+.detail {
+    margin-bottom: 60px;
+}
+
+.detail div {
+    font-size: 18px;
+    text-align: center;
+}
+
+.prod-price {
+    color: red;
+    font-weight: bold;
+}
+
+.prod-stock {}
+
+.prod-stock-content {}

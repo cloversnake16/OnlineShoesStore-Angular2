@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container">
+        <div class="col-sm-12">
+            <h1>{{title}}</h1>
+        </div>
+        <!--
+		<div class="form-group">
+			<label for="data_doc" id="data_doc">Data documento: </label>
+			<input type="date" id="datePicker" class="form-control" value={{doc_date}}>
+			<label for="data_con" id="data_con">Data consegna: </label>
+			<input type="date" id="datePickerCon" class="form-control" value={{doc_date}}>
+			<label for="magazzino" id="mag_label">Magazzino: </label>
+			<select class="form-control" id="magazzino">
+			   <option *ngFor="let magazzino of magazzini" [ngValue] = "magazzino" >{{magazzino.name}}</option>
+			</select>
+			<label for="priorita" id="label_priorita">Priorità: </label>
+			<select class="form-control" id="priorita">
+			   <option *ngFor="let pr of priorita" [ngValue] = "pr" >{{pr.name}}</option>
+			</select> 
+		-->
+        <!-- <label for="listino_type" id="label_listino_type" >Listino: </label> -->
+        <div class="col-sm-6" *ngFor="let listino of listini">
+            <a (click)="openListino(listino)"><img *ngIf="listino.foto!=null" src={{listino.foto}} style="width:100% "></a>
+            <!-- If listino photo doesn't exist, show error image -->
+            <a (click)="openListino(listino)"><img style="width:100%" *ngIf="listino.foto==null" src="immagini/imageError.png"></a>
+            <h4>{{listino.name}}</h4>
+        </div>
+        <!-- 
+		<select  class="form-control" id="listino_type" [(ngModel)] = "this.selected_listino" (ngModelChange) = "change($event)" >
+			<option *ngFor="let listino of listini" [ngValue] = "listino" [selected]="listino.id === selected_listino.id">{{listino.name}}</option> 
+		</select> -->
+        <!-- 
+		<p style="border-top: 1px solid black; width: 1400px; height: 5px; margin-bottom: 50px;"></p> -->
+        <!--   </div> -->
+    </div>
+    <!--   <product-list [prodottitoview]="selected_listino.Lista_Articoli" [sub]="this.flag_visibility"></product-list> -->
+</div>

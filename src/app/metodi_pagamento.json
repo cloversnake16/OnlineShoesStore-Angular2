@@ -1,0 +1,17 @@
+{
+
+"data": [
+     {
+	    "id": 1,
+        "name": "Bonifico"
+     },
+	 {
+	    "id": 2,
+        "name": "Carta di credito"
+     }
+ 
+ 
+ ]
+ 
+}
+

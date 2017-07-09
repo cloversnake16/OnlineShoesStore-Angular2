@@ -1,0 +1,30 @@
+<!-- viewlistproduct div -->
+<div class="container">
+    <div class="container">
+        <div class="col-sm-12">
+            <button (click)="BackToListini()" id="back_lis" class="btn btn-primary" name="back_lis" style="margin-bottom: 10px">
+                <span class="glyphicon glyphicon-menu-left"></span> Torna ai listini</button>
+        </div>
+        <div class="col-sm-6" id="prod_row" *ngFor="let prod of prodottitoview">
+            <div>
+                <!-- If product photo doesn't exist, show error image -->
+                <img *ngIf="!prod.foto" class="thumbnail" src="immagini/imageError.png" (click)="addToBasket(prod)" width="290px" height="200px">
+                <!-- If product photo exists, show produce photo -->
+                <img *ngIf="prod.foto" class="thumbnail" style="width:100%" src={{prod.foto}} (click)="addToBasket(prod)" alt="Card image cap">
+            </div>
+            <!-- cart detail div -->
+            <div class="detail">
+                <!-- product name -->
+                <h1 class="card-title">{{prod.name}}</h1>
+                <!-- price and stock -->
+                <div class="col-sm-4"><span class="prod-price">€ {{prod.prezzo}}</span></div>
+                <div class="col-sm-4"><span class="prod-stock">Giacenza: </span></div>
+                <div class="col-sm-4"><span class="prod-stock">{{prod.quantita}} pz.</span></div>
+                <!-- <span  style="display:block;margin-left: 43%; margin-top: 10px;">Qta Ord: <span *ngIf="prod.quantita_inserita != null"  style="margin-left: 23px;">{{prodserv.calcolaTotale(prod.id)}}pz.</span></span> -->
+                <h1></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- passing data such as dalog mode and selected product and visible to dialog component -->
+<app-dialog [mode]="modalita" [product]="this.productToEdit" [(visible)]="this.visible"></app-dialog>
